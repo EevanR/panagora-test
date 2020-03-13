@@ -1,6 +1,7 @@
+<script>
 import Home from './components/Home'
 import Vue from 'vue'
-import PanagoraLogo from './components/PanagoraLogo'
+import PanagoraLogo from './assets/PanagoraLogo'
 
 const App = Vue.extend({
   name: 'App',
@@ -15,3 +16,4 @@ const App = Vue.extend({
 })
 
 export default App
+</script>
