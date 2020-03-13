@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "name": "Nike Air Max 1/97 VF Sean Wotherspoon",
+    "name": "Air Max Sean Wotherspoon",
     "price": 1599,
     "currency": "SEK",
     "thumbnail": "/images/1-thumb.jpg"
   },
   {
     "id": 2,
-    "name": "Nike Sportswear The 10: Air Vapormax FK x Off-White",
+    "name": "Vapormax FK x Off-White",
     "price": 2499,
     "currency": "SEK",
     "thumbnail": "/images/2-thumb.jpg"
   },
   {
     "id": 3,
-    "name": "Jordan Brand Air Jordan 1 x OFF-WHITE NRG",
+    "name": "Air Jordan 1 x OFF-WHITE NRG",
     "price": 1899,
     "currency": "SEK",
     "thumbnail": "/images/3-thumb.jpg"
@@ -36,7 +36,7 @@
   },
   {
     "id": 6,
-    "name": "Jordan Brand Air Jordan 1 Retro High OG NRG",
+    "name": "Air Jordan 1 Retro High OG NRG",
     "price": 1599,
     "currency": "SEK",
     "thumbnail": "/images/6-thumb.jpg"
