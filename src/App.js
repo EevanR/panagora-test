@@ -1,12 +1,14 @@
-import HelloWorld from './components/HelloWorld'
+import Home from './components/Home'
 import Vue from 'vue'
+import PanagoraLogo from './components/PanagoraLogo'
 
 const App = Vue.extend({
   name: 'App',
   render () {
     return (
       <div>
-        <HelloWorld />
+        <PanagoraLogo />
+        <Home />
       </div>
     )
   }

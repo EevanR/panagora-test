@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 const Home = Vue.extend({
-  name: 'HelloWorld',
+  name: 'Home',
   render () {
     return (
       <div>
