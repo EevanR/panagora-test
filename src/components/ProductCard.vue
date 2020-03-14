@@ -63,17 +63,18 @@ export default {
   max-width: 25%;
   text-align: left;
   float: left;
-  margin-right: 30px;
+  margin-left: 30px;
   line-height: 24px;
   position: relative;
 }
 
 .home-headings {
   display: inline-flex;
+  margin-bottom: 30px;
 }
 
-#about {
-  margin-left: 35px;
+#products {
+  margin-right: 30px;
 }
 
 .product-card h3 {
@@ -91,5 +92,9 @@ img {
 
 html {
   margin-bottom: 200px;
+}
+
+body {
+  font-family: LL Circular,sans-serif;
 }
 </style>
