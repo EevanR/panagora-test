@@ -17,6 +17,10 @@ export default {
     requestItem (id) {
       this.productId = id
       this.page = 'about'
+    },
+
+    updatePage (e) {
+      this.page = e
     }
   },
 
@@ -24,7 +28,7 @@ export default {
     return (
       <div>
         <div class="home-headings">
-          <h3 id="products">Products</h3>
+          <a onClick={() => this.updatePage('list')}><h3 id="products">Products</h3></a>
           <h3 id="about">About</h3>
         </div>
         <div class="product">
