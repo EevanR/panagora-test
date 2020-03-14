@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 
 export default {
   name: 'About',
@@ -8,13 +9,28 @@ export default {
 
   data () {
     return {
+      showItem: null
     }
+  },
+
+  methods: {
+    productInfo () {
+      axios.get(`/static/products/${this.id}.json`)
+        .then(response => { this.showItem = response.data })
+        .catch(err => console.log(err))
+    }
+  },
+
+  created () {
+    this.productInfo()
   },
 
   render () {
     return (
       <div>
-        <h1>{this.id}</h1>
+        { this.showItem !== null && (
+          <p>{this.showItem.name}</p>
+        )}
       </div>
     )
   }

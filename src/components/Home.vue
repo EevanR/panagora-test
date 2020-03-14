@@ -1,6 +1,5 @@
 <script>
 import ProductCard from './ProductCard'
-import About from './About'
 
 export default {
   name: 'Home',
@@ -8,14 +7,9 @@ export default {
   render () {
     return (
       <div>
-        <div class="home-headings">
-          <h3 id="products">Products</h3>
-          <h3 id="about">About</h3>
-        </div>
         <div class="container-grid">
           <ProductCard />
         </div>
-        <About />
       </div>
     )
   }
@@ -36,13 +30,5 @@ export default {
   justify-content: center;
   margin-top: 40px;
   justify-content: center;
-}
-
-.home-headings {
-  display: inline-flex;
-}
-
-#about {
-  margin-left: 35px;
 }
 </style>

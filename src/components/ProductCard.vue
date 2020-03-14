@@ -8,31 +8,44 @@ export default {
   data () {
     return {
       products: products,
-      productId: null
+      productId: null,
+      page: 'list'
     }
   },
 
   methods: {
     requestItem (id) {
       this.productId = id
+      this.page = 'about'
     }
   },
 
   render () {
     return (
-      <div class="product">
-        { this.products.map(product => {
-          return (
-            <a onClick={() => this.requestItem(product.id)}>
-              <div class="product-card">
-                <img src={require(`../assets${product.thumbnail}`)} alt="Img" />
-                <h3>{product.name}</h3>
-                <p>{product.price} SEK</p>
-              </div>
-            </a>
-          )
-        })}
-        <About id={this.productId}/>
+      <div>
+        <div class="home-headings">
+          <h3 id="products">Products</h3>
+          <h3 id="about">About</h3>
+        </div>
+        <div class="product">
+          { this.page === 'list' ? (
+            <div>
+              { this.products.map(product => {
+                return (
+                  <a onClick={() => this.requestItem(product.id)}>
+                    <div class="product-card">
+                      <img src={require(`../assets${product.thumbnail}`)} alt="Img" />
+                      <h3>{product.name}</h3>
+                      <p>{product.price} SEK</p>
+                    </div>
+                  </a>
+                )
+              })}
+            </div>
+          ) : (
+            <About id={this.productId}/>
+          )}
+        </div>
       </div>
     )
   }
@@ -49,6 +62,14 @@ export default {
   margin-right: 30px;
   line-height: 24px;
   position: relative;
+}
+
+.home-headings {
+  display: inline-flex;
+}
+
+#about {
+  margin-left: 35px;
 }
 
 .product-card h3 {
