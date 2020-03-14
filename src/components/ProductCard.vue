@@ -1,12 +1,20 @@
 <script>
 import products from '../data/products.json'
+import About from './About'
 
 export default {
   name: 'ProductCard',
 
   data () {
     return {
-      products: products
+      products: products,
+      productId: null
+    }
+  },
+
+  methods: {
+    requestItem (id) {
+      this.productId = id
     }
   },
 
@@ -15,13 +23,16 @@ export default {
       <div class="product">
         { this.products.map(product => {
           return (
-            <div class="product-card">
-              <img src={require(`../assets${product.thumbnail}`)} alt="Img" />
-              <h3>{product.name}</h3>
-              <p>{product.price} SEK</p>
-            </div>
+            <a onClick={() => this.requestItem(product.id)}>
+              <div class="product-card">
+                <img src={require(`../assets${product.thumbnail}`)} alt="Img" />
+                <h3>{product.name}</h3>
+                <p>{product.price} SEK</p>
+              </div>
+            </a>
           )
         })}
+        <About id={this.productId}/>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 <script>
 import ProductCard from './ProductCard'
+import About from './About'
 
 export default {
   name: 'Home',
@@ -14,6 +15,7 @@ export default {
         <div class="container-grid">
           <ProductCard />
         </div>
+        <About />
       </div>
     )
   }
