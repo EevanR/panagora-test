@@ -56,21 +56,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .product-card{
   min-width: 165px;
   width: 22%;
   max-width: 25%;
   text-align: left;
   float: left;
-  margin-left: 30px;
+  margin-left: 2.5%;
   line-height: 24px;
-  position: relative;
 }
 
 .home-headings {
   display: inline-flex;
   margin-bottom: 30px;
+}
+
+p {
+  margin-top: 0px;
 }
 
 #products {
@@ -82,19 +85,4 @@ export default {
   margin-bottom: 0px;
 }
 
-p {
-  margin-top: 0px;
-}
-
-img {
-  width: 100%;
-}
-
-html {
-  margin-bottom: 200px;
-}
-
-body {
-  font-family: LL Circular,sans-serif;
-}
 </style>

@@ -19,14 +19,29 @@ export default {
 
 </script>
 
-<style scoped>
-
+<style>
 .container {
-  padding: 50px 7%;
+  padding: 20px 3%;
   text-align: center;
 }
 
 .logo {
-  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+a {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+html {
+  margin-bottom: 200px;
+}
+
+body {
+  font-family: LL Circular,sans-serif;
 }
 </style>

@@ -73,7 +73,7 @@ export default {
               </h3>
               { delivery === true && (
                 <p>30 mins! One of our fit staff members will PERSONALLY be sent to ride their bike
-                to your address with in 30mins. 31 mins and they're fired.</p>
+                to your address within 30mins. 31 mins and they're fired.</p>
               )}
               <div class="border"></div>
               <h3 id="description">Return Policy
@@ -122,12 +122,11 @@ img {
 .grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
-  padding: 10px;
 }
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 0 20px;
   text-align: left;
 }
 </style>
