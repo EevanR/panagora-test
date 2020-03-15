@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import data from '../data/product_sizes_shoes.json'
 
 export default {
   name: 'About',
@@ -12,7 +13,8 @@ export default {
       showItem: null,
       showDes: false,
       showDelivery: false,
-      showPolicy: false
+      showPolicy: false,
+      shoeSizes: data.availableSizes
     }
   },
 
@@ -20,7 +22,7 @@ export default {
     productInfo () {
       axios.get(`/static/products/${this.id}.json`)
         .then(response => { this.showItem = response.data })
-        .catch(err => console.log(err))
+        .catch(err => { this.showItem = err })
     },
 
     toggleDes (e) {
@@ -47,7 +49,7 @@ export default {
     let policy = this.showPolicy
     return (
       <div>
-        { this.showItem !== null && (
+        { item !== null && (
           <div class="grid-container">
             <div class="grid-item">
               <img src={require(`../assets${item.image}`)} alt="Img" />
@@ -55,6 +57,17 @@ export default {
             <div class="grid-item">
               <h1>{item.name}</h1>
               <h2 id="price">{item.price} {item.currency}</h2>
+              <div class="product-sizes">
+                { this.shoeSizes.map(size => {
+                  return (
+                    <a>
+                      <p class="sizes">
+                        {size.size}
+                      </p>
+                    </a>
+                  )
+                })}
+              </div>
               <h3 id="description">Description
                 { des === false ? (
                   <a onClick={() => this.toggleDes(true)}><span id="arrow">&#8595;</span></a>
@@ -129,4 +142,21 @@ img {
   padding: 0 20px;
   text-align: left;
 }
+
+.product-sizes {
+  margin: 0 0 .625rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(6.375rem,1fr));
+  grid-gap: .625rem;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.sizes{
+  text-align: center;
+  background-color: rgb(227, 225, 225);
+  padding: 13px 0;
+  margin: 0 0;
+}
+
 </style>

@@ -1,0 +1,49 @@
+{
+  "availableSizes": [
+    {
+    "id": 2,
+      "size": "42",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "42.5",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "43",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "43.5",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "44",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "44.5",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "45",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "46",
+      "itemID": ""
+    },
+    {
+      "id": 2,
+      "size": "47",
+      "itemID": ""
+    }
+  ]
+}
