@@ -1,17 +1,23 @@
 <script>
 import Home from './components/Home'
 import PanagoraLogo from './assets/PanagoraLogo'
+import ShoppingCard from './components/ShoppingCart'
 
 export default {
   name: 'App',
 
   render () {
     return (
-      <div class="container">
-        <div class="logo">
-          <PanagoraLogo />
+      <div>
+        <div class="shopping">
+          <ShoppingCard />
         </div>
-        <Home />
+        <div class="container">
+          <div class="logo">
+            <PanagoraLogo />
+          </div>
+          <Home />
+        </div>
       </div>
     )
   }
@@ -35,6 +41,14 @@ a {
 
 img {
   width: 100%;
+}
+
+.shopping {
+  position: fixed;
+  font-size: 30px;
+  z-index: 100;
+  right: 3%;
+  top: 30px;
 }
 
 html {

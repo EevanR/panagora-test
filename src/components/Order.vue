@@ -72,23 +72,29 @@ export default {
 
 .sizes {
   text-align: center;
-  background-color: rgb(227, 225, 225);
+  background-color: black;
   padding: 13px 0;
   margin: 0 0;
+  color: white;
+}
+
+.sizes:hover {
+  background-color: #36c092;
 }
 
 .add-cart-button {
   text-align: center;
   padding: 20px 0;
   min-width: 170px;
+  background-color: black;
+  color: white;
   width: 50%;
-  border: 1px solid black;
   font-weight: 600;
   margin-bottom: 30px;
 }
 
 #active.add-cart-button {
-  background-color: black;
+  background-color: #36c092;
   color: white;
   cursor: pointer;
 }
@@ -96,7 +102,7 @@ export default {
 .sizes-active {
   color: white;
   text-align: center;
-  background-color: black;
+  background-color: #36c092;
   padding: 13px 0;
   margin: 0 0;
 }

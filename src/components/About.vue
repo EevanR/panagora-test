@@ -104,7 +104,7 @@ img {
 
 #price{
   margin: 35px 0;
-  color: darkgreen;
+  color: #36c092;
 }
 
 #description{
