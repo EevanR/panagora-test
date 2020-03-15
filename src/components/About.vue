@@ -59,18 +59,18 @@ export default {
               <Order itemInfo={item} />
               <h3 id="description">Description
                 { des === false ? (
-                  <a onClick={() => this.toggleDes(true)}><span id="arrow">&#8595;</span></a>
+                  <span onClick={() => this.toggleDes(true)} id="arrow">&#8595;</span>
                 ) : (
-                  <a onClick={() => this.toggleDes(false)}><span id="arrow">&#8593;</span></a>
+                  <span onClick={() => this.toggleDes(false)} id="arrow">&#8593;</span>
                 )}
               </h3>
               { des === true && (<p>{item.description}</p>)}
               <div class="border"></div>
               <h3 id="description">Delivery Time
                 { delivery === false ? (
-                  <a onClick={() => this.toggleDelivery(true)}><span id="arrow">&#8595;</span></a>
+                  <span onClick={() => this.toggleDelivery(true)} id="arrow">&#8595;</span>
                 ) : (
-                  <a onClick={() => this.toggleDelivery(false)}><span id="arrow">&#8593;</span></a>
+                  <span onClick={() => this.toggleDelivery(false)} id="arrow">&#8593;</span>
                 )}
               </h3>
               { delivery === true && (
@@ -80,9 +80,9 @@ export default {
               <div class="border"></div>
               <h3 id="description">Return Policy
                 { policy === false ? (
-                  <a onClick={() => this.togglePolicy(true)}><span id="arrow">&#8595;</span></a>
+                  <span onClick={() => this.togglePolicy(true)} id="arrow">&#8595;</span>
                 ) : (
-                  <a onClick={() => this.togglePolicy(false)}><span id="arrow">&#8593;</span></a>
+                  <span onClick={() => this.togglePolicy(false)} id="arrow">&#8593;</span>
                 )}
               </h3>
               { policy === true && (
@@ -95,7 +95,6 @@ export default {
     )
   }
 }
-
 </script>
 
 <style scoped>
@@ -114,6 +113,7 @@ img {
 
 #arrow {
   float: right;
+  cursor: pointer;
 }
 
 .border {

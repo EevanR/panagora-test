@@ -28,7 +28,10 @@ export default {
     return (
       <div>
         <div class="home-headings">
-          <a onClick={() => this.updatePage('list')}><h3 id="products">Products</h3></a>
+          <h3 id="products"
+            onClick={() => this.updatePage('list')}
+          >Products
+          </h3>
           <h3 id="about">About</h3>
         </div>
         <div class="product">
@@ -78,6 +81,7 @@ p {
 
 #products {
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .product-card h3 {

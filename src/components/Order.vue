@@ -49,9 +49,10 @@ export default {
         { this.selected === null ? (
           <p class="add-cart-button">ADD TO CART</p>
         ) : (
-          <a onClick={() => this.sendToCart()}>
-            <p id="active" class="add-cart-button">ADD TO CART</p>
-          </a>
+          <p id="active" class="add-cart-button"
+            onClick={() => this.sendToCart()}
+          >ADD TO CART
+          </p>
         )}
       </div>
     )
@@ -89,6 +90,7 @@ export default {
 #active.add-cart-button {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .sizes-active {
