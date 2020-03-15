@@ -56,7 +56,7 @@ export default {
             <div class="grid-item">
               <h1>{item.name}</h1>
               <h2 id="price">{item.price} {item.currency}</h2>
-              <Order />
+              <Order itemInfo={item} />
               <h3 id="description">Description
                 { des === false ? (
                   <a onClick={() => this.toggleDes(true)}><span id="arrow">&#8595;</span></a>

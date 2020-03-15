@@ -3,25 +3,56 @@ import data from '../data/product_sizes_shoes.json'
 
 export default {
   name: 'Order',
+  props: {
+    item: Object
+  },
 
   data () {
     return {
-      shoeSizes: data.availableSizes
+      shoeSizes: data.availableSizes,
+      itemInfo: this.$attrs.itemInfo,
+      selected: null
     }
   },
 
-  methods: {},
+  methods: {
+    sendToCart () {
+      let cart = 'cart'
+      const itemInfo = {item: this.itemInfo, size: this.shoeSizes[this.selected - 1].size}
+      let cartItems = []
+      if (localStorage.getItem('cart')) {
+        cartItems = JSON.parse(localStorage.getItem('cart'))
+        cartItems.push(itemInfo)
+      } else {
+        cartItems.push(itemInfo)
+      }
+      localStorage.setItem(cart, JSON.stringify(cartItems))
+    }
+  },
 
   render () {
     return (
-      <div class="product-sizes">
-        {this.shoeSizes.map(size => {
-          return (
-            <a>
-              <p class="sizes">{size.size}</p>
-            </a>
-          )
-        })}
+      <div>
+        <div class="product-sizes">
+          {this.shoeSizes.map(size => {
+            return (
+              <a onClick={() => { this.selected = size.id }}>
+                { this.selected === size.id ? (
+                  <p class="sizes-active">{size.size}</p>
+                ) : (
+                  <p class="sizes">{size.size}</p>
+                )}
+              </a>
+            )
+          })}
+        </div>
+        { this.selected === null ? (
+          <p class="add-cart-button">ADD TO CART</p>
+        ) : (
+          <a onClick={() => this.sendToCart()}>
+            <p id="active" class="add-cart-button">ADD TO CART</p>
+          </a>
+        )}
       </div>
     )
   }
@@ -38,9 +69,32 @@ export default {
   padding-left: 0;
 }
 
-.sizes{
+.sizes {
   text-align: center;
   background-color: rgb(227, 225, 225);
+  padding: 13px 0;
+  margin: 0 0;
+}
+
+.add-cart-button {
+  text-align: center;
+  padding: 20px 0;
+  min-width: 170px;
+  width: 50%;
+  border: 1px solid black;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+#active.add-cart-button {
+  background-color: black;
+  color: white;
+}
+
+.sizes-active {
+  color: white;
+  text-align: center;
+  background-color: black;
   padding: 13px 0;
   margin: 0 0;
 }
