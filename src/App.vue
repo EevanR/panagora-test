@@ -1,6 +1,6 @@
 <script>
-import Home from './components/Home'
 import PanagoraLogo from './assets/PanagoraLogo'
+import ProductList from './components/ProductList'
 
 export default {
   name: 'App',
@@ -11,7 +11,7 @@ export default {
         <div class="logo">
           <PanagoraLogo />
         </div>
-        <Home />
+        <ProductList />
       </div>
     )
   }
@@ -21,7 +21,7 @@ export default {
 
 <style>
 .container {
-  padding: 20px 3%;
+  padding: 20px 5%;
   text-align: center;
 }
 

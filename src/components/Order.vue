@@ -19,21 +19,19 @@ export default {
 
   methods: {
     sendToCart () {
-      let cart = 'cart'
       const itemInfo = {item: this.itemInfo, size: this.shoeSizes[this.selected - 1].size}
       let cartItems = []
       if (localStorage.getItem('cart')) {
         cartItems = JSON.parse(localStorage.getItem('cart'))
-        cartItems.push([Math.floor(Math.random() * 1000), itemInfo])
-      } else {
-        cartItems.push([Math.floor(Math.random() * 1000), itemInfo])
       }
-      localStorage.setItem(cart, JSON.stringify(cartItems))
+      cartItems.push([Math.floor(Math.random() * 1000), itemInfo])
+      localStorage.setItem('cart', JSON.stringify(cartItems))
       this.cart += 1
     }
   },
 
   render () {
+    let selected = this.selected
     return (
       <div>
         <div class="shopping">
@@ -43,7 +41,7 @@ export default {
           {this.shoeSizes.map(size => {
             return (
               <a onClick={() => { this.selected = size.id }}>
-                { this.selected === size.id ? (
+                { selected === size.id ? (
                   <p class="sizes-active">{size.size}</p>
                 ) : (
                   <p class="sizes">{size.size}</p>
@@ -52,11 +50,10 @@ export default {
             )
           })}
         </div>
-        { this.selected === null ? (
+        { selected === null ? (
           <p class="add-cart-button">ADD TO CART</p>
         ) : (
-          <p id='active' class="add-cart-button"
-            onClick={() => this.sendToCart()}
+          <p id='active' class="add-cart-button" onClick={() => this.sendToCart()}
           >ADD TO CART
           </p>
         )}

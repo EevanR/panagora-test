@@ -4,7 +4,7 @@ import About from './About'
 import ShoppingCart from './ShoppingCart'
 
 export default {
-  name: 'ProductCard',
+  name: 'ProductList',
 
   data () {
     return {
@@ -66,11 +66,11 @@ export default {
 <style scoped>
 .product-card{
   min-width: 165px;
-  width: 22%;
+  width: 23%;
   max-width: 25%;
   text-align: left;
   float: left;
-  margin-left: 2.5%;
+  margin-left: 1.6%;
   line-height: 24px;
 }
 

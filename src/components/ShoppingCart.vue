@@ -63,13 +63,11 @@ export default {
   },
 
   mounted () {
-    document.addEventListener('click', this.handleClick, false)
+    document.addEventListener('click', this.handleClick)
   },
 
   render () {
-    let items = this.items
-    let showCart = this.showCart
-    let total = this.total
+    const { items, showCart, total } = this
     return (
       <div id='checkout'>
         {showCart === false ? (
@@ -80,7 +78,7 @@ export default {
             >
               X
             </p>
-            {this.items === null ? (
+            { items === null ? (
               <p>Cart Empty</p>
             ) : (
               items.map(item => {
