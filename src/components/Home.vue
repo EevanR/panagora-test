@@ -19,7 +19,6 @@ export default {
 
 <style scoped>
 .container {
-  /* width: 100%; */
   justify-content: center;
 }
 </style>

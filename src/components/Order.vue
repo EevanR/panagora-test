@@ -12,7 +12,8 @@ export default {
     return {
       shoeSizes: data.availableSizes,
       itemInfo: this.$attrs.itemInfo,
-      selected: null
+      selected: null,
+      cart: 0
     }
   },
 
@@ -23,12 +24,12 @@ export default {
       let cartItems = []
       if (localStorage.getItem('cart')) {
         cartItems = JSON.parse(localStorage.getItem('cart'))
-        cartItems.push(itemInfo)
+        cartItems.push([Math.floor(Math.random() * 1000), itemInfo])
       } else {
-        cartItems.push(itemInfo)
+        cartItems.push([Math.floor(Math.random() * 1000), itemInfo])
       }
-      alert(`${this.itemInfo.name} added to checkout cart`)
       localStorage.setItem(cart, JSON.stringify(cartItems))
+      this.cart += 1
     }
   },
 
@@ -36,7 +37,7 @@ export default {
     return (
       <div>
         <div class="shopping">
-          <ShoppingCart />
+          <ShoppingCart cart={this.cart}/>
         </div>
         <div class="product-sizes">
           {this.shoeSizes.map(size => {
@@ -54,7 +55,7 @@ export default {
         { this.selected === null ? (
           <p class="add-cart-button">ADD TO CART</p>
         ) : (
-          <p class="add-cart-button-active"
+          <p id='active' class="add-cart-button"
             onClick={() => this.sendToCart()}
           >ADD TO CART
           </p>
@@ -98,16 +99,9 @@ export default {
   margin-bottom: 30px;
 }
 
-.add-cart-button-active {
+#active.add-cart-button {
   background-color: #36c092;
   cursor: pointer;
-  text-align: center;
-  padding: 20px 0;
-  min-width: 170px;
-  color: white;
-  width: 50%;
-  font-weight: 600;
-  margin-bottom: 30px;
 }
 
 .sizes-active {

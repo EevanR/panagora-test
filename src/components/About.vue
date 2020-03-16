@@ -59,18 +59,18 @@ export default {
               <Order itemInfo={item} />
               <h3 id="description">Description
                 { des === false ? (
-                  <span onClick={() => this.toggleDes(true)} id="arrow">&#8595;</span>
+                  <span onClick={() => this.toggleDes(true)} class="arrow">&#8595;</span>
                 ) : (
-                  <span onClick={() => this.toggleDes(false)} id="arrow">&#8593;</span>
+                  <span onClick={() => this.toggleDes(false)} class="arrow">&#8593;</span>
                 )}
               </h3>
               { des === true && (<p>{item.description}</p>)}
               <div class="border"></div>
               <h3 id="description">Delivery Time
                 { delivery === false ? (
-                  <span onClick={() => this.toggleDelivery(true)} id="arrow">&#8595;</span>
+                  <span onClick={() => this.toggleDelivery(true)} class="arrow">&#8595;</span>
                 ) : (
-                  <span onClick={() => this.toggleDelivery(false)} id="arrow">&#8593;</span>
+                  <span onClick={() => this.toggleDelivery(false)} class="arrow">&#8593;</span>
                 )}
               </h3>
               { delivery === true && (
@@ -80,9 +80,9 @@ export default {
               <div class="border"></div>
               <h3 id="description">Return Policy
                 { policy === false ? (
-                  <span onClick={() => this.togglePolicy(true)} id="arrow">&#8595;</span>
+                  <span onClick={() => this.togglePolicy(true)} class="arrow">&#8595;</span>
                 ) : (
-                  <span onClick={() => this.togglePolicy(false)} id="arrow">&#8593;</span>
+                  <span onClick={() => this.togglePolicy(false)} class="arrow">&#8593;</span>
                 )}
               </h3>
               { policy === true && (
@@ -111,7 +111,7 @@ img {
   margin-bottom: 30px;
 }
 
-#arrow {
+.arrow {
   float: right;
   cursor: pointer;
 }

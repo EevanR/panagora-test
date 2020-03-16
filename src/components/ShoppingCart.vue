@@ -1,6 +1,9 @@
 <script>
 export default {
   name: 'ShoppingCart',
+  props: {
+    cart: Number
+  },
 
   data () {
     return {
@@ -11,10 +14,15 @@ export default {
     }
   },
 
+  watch: {
+    cart: function () {
+      this.getCart()
+    }
+  },
+
   methods: {
     getCart () {
       this.items = JSON.parse(localStorage.getItem('cart'))
-      this.showCart = true
       this.getTotal()
     },
 
@@ -22,8 +30,9 @@ export default {
       this.prices = []
       let items = this.items
       let prices = this.prices
-      items !== null && (items.map(item => { prices.push(item.item.price) }))
+      items !== null && (items.map(item => { prices.push(item[1].item.price) }))
       this.total = prices.reduce((a, b) => a + b, 0)
+      this.showCart = true
     },
 
     clearCart () {
@@ -37,8 +46,20 @@ export default {
       if (e.target.id === '') {
         this.showCart = false
       }
-    }
+    },
 
+    deleteItem (e) {
+      let cartItems = []
+      let orders = JSON.parse(localStorage.getItem('cart'))
+      orders.forEach(order => {
+        if (order[0] !== e) {
+          cartItems.push(order)
+        }
+      })
+      localStorage.setItem('cart', JSON.stringify(cartItems))
+      this.getCart()
+      alert('Order ID would be sent to backend, for destroy from User database')
+    }
   },
 
   mounted () {
@@ -50,15 +71,12 @@ export default {
     let showCart = this.showCart
     let total = this.total
     return (
-      <div>
+      <div id='checkout'>
         {showCart === false ? (
           <i id='cart-icon' class="fa fa-shopping-cart" onClick={() => this.getCart()}></i>
         ) : (
           <div id="cart" class="cart">
-            <p onClick={() => {
-              this.showCart = false
-            }}
-            id="exit"
+            <p onClick={() => { this.showCart = false }} id="exit"
             >
               X
             </p>
@@ -69,14 +87,14 @@ export default {
                 return (
                   <div id="item" class="item">
                     <img id='cart-img'
-                      src={require(`../assets${item.item.thumbnail}`)}
+                      src={require(`../assets${item[1].item.thumbnail}`)}
                       alt="Img"
                     />
-                    <p>{item.item.name}</p>
+                    <p>{item[1].item.name}</p>
                     <p id="price">
-                      {item.item.price} {item.item.currency}
+                      {item[1].item.price} {item[1].item.currency} <span id='order-num'>Order # {item[0]}</span>
                     </p>
-                    <p>Size {item.size}</p>
+                    <p>Size {item[1].size} <span id="remove" onClick={() => this.deleteItem(item[0])}>Remove</span></p>
                   </div>
                 )
               })
@@ -104,6 +122,13 @@ p {
   font-size: 16px;
 }
 
+#remove {
+  float: right;
+  color: red;
+  font-size: 13px;
+  cursor: pointer;
+}
+
 i {
   margin-right: 40px;
   font-size: 30px;
@@ -126,6 +151,11 @@ i {
   margin-left: 95%;
   float: right;
   cursor: pointer;
+}
+
+#order-num {
+  float: right;
+  color: black;
 }
 
 .item {

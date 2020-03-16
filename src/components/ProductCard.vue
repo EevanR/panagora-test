@@ -36,7 +36,7 @@ export default {
             onClick={() => this.updatePage('list')}
           >Products
           </h3>
-          <h3 id="about">About</h3>
+          { this.page === 'list' ? <h3 id="about">About</h3> : <h3 id="about-active">About</h3> }
         </div>
         <div class="product">
           { this.page === 'list' ? (
@@ -83,14 +83,21 @@ p {
   margin-top: 0px;
 }
 
+#about-active {
+  color: #36c092;
+}
+
 #products {
   margin-right: 30px;
   cursor: pointer;
+}
+
+#products:hover {
+  color: #36c092;
 }
 
 .product-card h3 {
   font-size: 16px;
   margin-bottom: 0px;
 }
-
 </style>
