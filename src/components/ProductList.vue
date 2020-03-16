@@ -1,9 +1,10 @@
 <script>
 import products from '../data/products.json'
 import About from './About'
+import ShoppingCart from './ShoppingCart'
 
 export default {
-  name: 'ProductCard',
+  name: 'ProductList',
 
   data () {
     return {
@@ -26,10 +27,16 @@ export default {
 
   render () {
     return (
-      <div>
+      <div id="productList">
+        <div class="shopping">
+          <ShoppingCart />
+        </div>
         <div class="home-headings">
-          <a onClick={() => this.updatePage('list')}><h3 id="products">Products</h3></a>
-          <h3 id="about">About</h3>
+          <h3 id="products"
+            onClick={() => this.updatePage('list')}
+          >Products
+          </h3>
+          { this.page === 'list' ? <h3 id="about">About</h3> : <h3 id="about-active">About</h3> }
         </div>
         <div class="product">
           { this.page === 'list' ? (
@@ -59,11 +66,11 @@ export default {
 <style scoped>
 .product-card{
   min-width: 165px;
-  width: 22%;
+  width: 23%;
   max-width: 25%;
   text-align: left;
   float: left;
-  margin-left: 2.5%;
+  margin-left: 1.6%;
   line-height: 24px;
 }
 
@@ -76,13 +83,21 @@ p {
   margin-top: 0px;
 }
 
+#about-active {
+  color: #36c092;
+}
+
 #products {
   margin-right: 30px;
+  cursor: pointer;
+}
+
+#products:hover {
+  color: #36c092;
 }
 
 .product-card h3 {
   font-size: 16px;
   margin-bottom: 0px;
 }
-
 </style>
