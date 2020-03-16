@@ -1,36 +1,35 @@
-# Panagora Code Test
+# Panagora Test
 
-## What's here?
+Panagora Test is created Vue.js with an added JSX extention. Simple layout of potential online merchant. Incoming data is pulled from local json files as no backend is present for this exercise. Cart items are kept in local storage, again, as no backend or external API functionality is present.
 
-- `design/` styleguide and site design
-- `images/` a couple of product images
-- `static/` static assets that you will need
-- <PRODUCT_ID>.json
-- products.json
-- empty `index.html`
+## Dependencies
+- Vue 2.5.2
+- axios 0.19.2
+- @vue/babel-preset-jsx 1.1.2
 
-## Javascript libraries
+## To run locally
+#### Clone repository
+```
+$ git clone https://github.com/EevanR/panagora-test.git
+```
+```
+$ cd panagora-test
+```
 
-- handlebars.js
-- vue.js
+#### Install dependencies
+Install dependencies
+```
+$ npm install
+```
 
-## Preferred technologies to use
+#### Initiate local server
+```
+$ npm run dev
+```
 
-- Gulp
-- SCSS
+## Actions available to the user
 
-## Instructions
+Feel free to have a look around at different products, their details, and add and remove them from shopping cart.
 
-The idea here is to build a single page application with JavaScript. We have provided a set of libraries that we want you to use to achieve this (see above and pick one of them). We also suggest some technologies we prefer if you used but they are not required. 
-
-You will find the styleguide and site design in `design/`. We want this implemented.
-
-In `data/` you will find a couple of json files that will act as your "backend". `products.json` holds a list of simplified product representations and `<PRODUCT_ID>.json` is an actual product representation.
-
-On one page we want all products rendered. When clicking on one of the products we want to see a product page with full product info and a form to add the product to a cart. Layout this page however you want but use the design elements from the styleguide.
-
-**Important:** Please tell us how much time you spent on this and describe your work to us! Just a couple of sentences of each step you took or if something was unclear and how you solved it.
-
-## Tips
-
-We will only test your site in the newest Chrome/Firefox browser so feel free to use `html5`, `css3`, `es6`, `canvas` or anything else you need. If you need to use a nightly build don't forget to tell us!
+## License
+Created under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>.
