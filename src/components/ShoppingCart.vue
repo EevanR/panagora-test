@@ -14,7 +14,6 @@ export default {
   methods: {
     getCart () {
       this.items = JSON.parse(localStorage.getItem('cart'))
-      debugger
       this.showCart = true
       this.getTotal()
     },
@@ -23,7 +22,7 @@ export default {
       this.prices = []
       let items = this.items
       let prices = this.prices
-      items.map(item => { prices.push(item.item.price) })
+      items !== null && (items.map(item => { prices.push(item.item.price) }))
       this.total = prices.reduce((a, b) => a + b, 0)
     },
 
@@ -32,7 +31,18 @@ export default {
       this.showCart = false
       this.prices = []
       this.total = 0
+    },
+
+    handleClick (e) {
+      if (e.target.id === '') {
+        this.showCart = false
+      }
     }
+
+  },
+
+  mounted () {
+    document.addEventListener('click', this.handleClick, false)
   },
 
   render () {
@@ -41,29 +51,42 @@ export default {
     let total = this.total
     return (
       <div>
-        { showCart === false ? (
-          <i class="fa fa-shopping-cart"
-            onClick={() => this.getCart()}
-          ></i>
+        {showCart === false ? (
+          <i id='cart-icon' class="fa fa-shopping-cart" onClick={() => this.getCart()}></i>
         ) : (
-          <div class="cart">
-            <p onClick={() => { this.showCart = false }}id="exit">X</p>
-            { this.items === null ? (
+          <div id="cart" class="cart">
+            <p onClick={() => {
+              this.showCart = false
+            }}
+            id="exit"
+            >
+              X
+            </p>
+            {this.items === null ? (
               <p>Cart Empty</p>
             ) : (
               items.map(item => {
                 return (
-                  <div class="item">
-                    <img src={require(`../assets${item.item.thumbnail}`)} alt="Img" />
+                  <div id="item" class="item">
+                    <img id='cart-img'
+                      src={require(`../assets${item.item.thumbnail}`)}
+                      alt="Img"
+                    />
                     <p>{item.item.name}</p>
-                    <p id="price">{item.item.price} {item.item.currency}</p>
+                    <p id="price">
+                      {item.item.price} {item.item.currency}
+                    </p>
                     <p>Size {item.size}</p>
                   </div>
                 )
               })
-            ) }
-            <p>Total <span style="float: right">{total} SEK</span></p>
-            <p onClick={() => this.clearCart()} id="clear">CLEAR CART</p>
+            )}
+            <p>
+              Total <span style="float: right">{total} SEK</span>
+            </p>
+            <p onClick={() => this.clearCart()} id="clear">
+              CLEAR CART
+            </p>
           </div>
         )}
       </div>
@@ -73,7 +96,7 @@ export default {
 </script>
 
 <style scoped>
-img{
+img {
   width: 100px;
 }
 
@@ -82,6 +105,7 @@ p {
 }
 
 i {
+  margin-right: 40px;
   font-size: 30px;
   cursor: pointer;
 }
@@ -110,10 +134,11 @@ i {
 }
 
 .cart {
-  padding: 10px 10%;
+  text-align: left;
+  padding: 10px 40px;
   background-color: white;
   min-width: 300px;
-  max-width: 350px;
+  max-width: 300px;
   min-height: 400px;
   max-height: 600px;
   overflow: scroll;

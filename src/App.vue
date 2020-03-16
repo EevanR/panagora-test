@@ -1,23 +1,17 @@
 <script>
 import Home from './components/Home'
 import PanagoraLogo from './assets/PanagoraLogo'
-import ShoppingCard from './components/ShoppingCart'
 
 export default {
   name: 'App',
 
   render () {
     return (
-      <div>
-        <div class="shopping">
-          <ShoppingCard />
+      <div class="container">
+        <div class="logo">
+          <PanagoraLogo />
         </div>
-        <div class="container">
-          <div class="logo">
-            <PanagoraLogo />
-          </div>
-          <Home />
-        </div>
+        <Home />
       </div>
     )
   }
@@ -47,7 +41,7 @@ img {
   position: fixed;
   font-size: 30px;
   z-index: 100;
-  right: 3%;
+  right: 0;
   top: 30px;
 }
 

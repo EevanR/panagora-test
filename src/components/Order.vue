@@ -1,5 +1,6 @@
 <script>
 import data from '../data/product_sizes_shoes.json'
+import ShoppingCart from './ShoppingCart'
 
 export default {
   name: 'Order',
@@ -26,6 +27,7 @@ export default {
       } else {
         cartItems.push(itemInfo)
       }
+      alert(`${this.itemInfo.name} added to checkout cart`)
       localStorage.setItem(cart, JSON.stringify(cartItems))
     }
   },
@@ -33,6 +35,9 @@ export default {
   render () {
     return (
       <div>
+        <div class="shopping">
+          <ShoppingCart />
+        </div>
         <div class="product-sizes">
           {this.shoeSizes.map(size => {
             return (
@@ -49,7 +54,7 @@ export default {
         { this.selected === null ? (
           <p class="add-cart-button">ADD TO CART</p>
         ) : (
-          <p id="active" class="add-cart-button"
+          <p class="add-cart-button-active"
             onClick={() => this.sendToCart()}
           >ADD TO CART
           </p>
@@ -93,10 +98,16 @@ export default {
   margin-bottom: 30px;
 }
 
-#active.add-cart-button {
+.add-cart-button-active {
   background-color: #36c092;
-  color: white;
   cursor: pointer;
+  text-align: center;
+  padding: 20px 0;
+  min-width: 170px;
+  color: white;
+  width: 50%;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .sizes-active {

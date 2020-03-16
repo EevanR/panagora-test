@@ -1,6 +1,7 @@
 <script>
 import products from '../data/products.json'
 import About from './About'
+import ShoppingCart from './ShoppingCart'
 
 export default {
   name: 'ProductCard',
@@ -26,7 +27,10 @@ export default {
 
   render () {
     return (
-      <div>
+      <div id="productList">
+        <div class="shopping">
+          <ShoppingCart />
+        </div>
         <div class="home-headings">
           <h3 id="products"
             onClick={() => this.updatePage('list')}
