@@ -2,6 +2,9 @@
 
 Panagora Test is created Vue.js with an added JSX extention. Simple layout of potential online merchant. Incoming data is pulled from local json files as no backend is present for this exercise. Cart items are kept in local storage, again, as no backend or external API functionality is present.
 
+## Deployed Site
+https://eevan-panagora-test.netlify.com
+
 ## Dependencies
 - Vue 2.5.2
 - axios 0.19.2
