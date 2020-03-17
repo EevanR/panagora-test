@@ -46,11 +46,11 @@ export default {
     return (
       <div>
         { showItem !== null && (
-          <div class="grid-container">
-            <div class="grid-item">
+          <div class="row">
+            <div class="column">
               <img src={require(`../assets${showItem.image}`)} alt="Img" />
             </div>
-            <div class="grid-item">
+            <div class="column">
               <h1>{showItem.name}</h1>
               <h2 id="price">{showItem.price} {showItem.currency}</h2>
               <Order itemInfo={showItem} />
@@ -95,10 +95,6 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 100%;
-}
-
 #price{
   margin: 35px 0;
   color: #36c092;
@@ -118,14 +114,26 @@ img {
   margin-bottom: 30px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  text-align: left;
 }
 
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 0 20px;
-  text-align: left;
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    width: 100%;
+  }
 }
 </style>

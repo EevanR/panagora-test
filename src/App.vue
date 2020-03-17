@@ -21,7 +21,7 @@ export default {
 
 <style>
 .container {
-  padding: 20px 5%;
+  padding: 20px 6%;
   text-align: center;
 }
 
